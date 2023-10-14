@@ -138,7 +138,7 @@ func readFile(filename string) (users []User , err error) {
 	return users , nil
 }
 
-func main() {
+func asynchornous() {
 	dataCh , err := readFileConcurren("data.json")
 
 	if err != nil {
@@ -159,4 +159,16 @@ func main() {
 	if <-done {
 		log.Println("Donee")
 	}
+}
+
+func synchronous() {
+	user,_ := readFile("./data.json")
+	result := changeDollarToIdr(user)
+	log.Println(result[0], cap(result))
+}
+
+func main() {
+	now := time.Now()
+	asynchornous()
+	log.Println("Done in", time.Since(now).Seconds())
 }

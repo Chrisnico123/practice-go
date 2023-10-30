@@ -13,7 +13,7 @@ type PostgresGormRepository struct {
 func NewPostgresGormRepository(db *gorm.DB) PostgresGormRepository {
 	return PostgresGormRepository{
 		db: db,
-	}
+	}	
 }
 
 func (p PostgresGormRepository) Create(ctx context.Context, model Product) (err error) {
